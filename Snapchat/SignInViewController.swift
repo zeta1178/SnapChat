@@ -18,10 +18,29 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     @IBAction func turnupTapped(_ sender: AnyObject) {
         
-    //FIRAuth.auth()?.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: FIRAuthResultCallback?)
+        FIRAuth.auth()?.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
+            print("We tried to sign in")
+            if error != nil {
+                print("Hey we have an error:\(error)")
+                
+                FIRAuth.auth()?.createUser(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!, completion: { (user, error) in
+                    print("We tried to create a user")
+                    
+                    if error != nil {
+                        print("Hey we have an error:\(error)")
+                    } else {
+                        print("Created user successfully!")
+                        self.performSegue(withIdentifier: "signinSegue", sender: nil)
+                    }
+                    })
+            } else {
+                print("Signed in Successfully")
+                self.performSegue(withIdentifier: "signinSegue", sender: nil)
+            }
+        })
         
     }
     
