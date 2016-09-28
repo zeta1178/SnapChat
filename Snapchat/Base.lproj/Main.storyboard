@@ -109,7 +109,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Hj-ih-MbD">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Hj-ih-MbD">
+                                <color key="backgroundColor" red="0.58927158723437023" green="0.58927158723437023" blue="0.58927158723437023" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="RI6-Qw-JwL"/>
                                     <constraint firstAttribute="height" constant="128" id="YTO-Ih-Cw3"/>
@@ -149,11 +150,44 @@
                         <outlet property="descriptionTextField" destination="QEy-kH-XhJ" id="YvZ-4H-3Ce"/>
                         <outlet property="imageView" destination="6Hj-ih-MbD" id="yjm-P2-CWc"/>
                         <outlet property="nextButton" destination="bU2-X8-oBX" id="KNs-xn-Gy8"/>
+                        <segue destination="0pW-Sw-yC3" kind="show" identifier="selectUserSegue" id="eB4-eg-t9g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZAf-IH-Wck" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2634" y="131"/>
+        </scene>
+        <!--Select User View Controller-->
+        <scene sceneID="gH5-Gy-kga">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="0pW-Sw-yC3" customClass="SelectUserViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3bK-SK-Wt2"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Gp-Ii-mmL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gP6-Ao-Ka7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k24-Wf-tF9">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="k24-Wf-tF9" firstAttribute="top" secondItem="3bK-SK-Wt2" secondAttribute="bottom" id="5TW-b3-Tnx"/>
+                            <constraint firstAttribute="trailing" secondItem="k24-Wf-tF9" secondAttribute="trailing" id="7kh-Gz-lfc"/>
+                            <constraint firstItem="0Gp-Ii-mmL" firstAttribute="top" secondItem="k24-Wf-tF9" secondAttribute="bottom" id="RKp-cO-2R9"/>
+                            <constraint firstItem="k24-Wf-tF9" firstAttribute="leading" secondItem="gP6-Ao-Ka7" secondAttribute="leading" id="apq-hW-FHU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="k24-Wf-tF9" id="mO5-rZ-5OW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ie-5l-iDd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3386" y="131"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NLD-W8-fYd">
