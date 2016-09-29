@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11517.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -70,7 +71,7 @@
         <!--Snaps View Controller-->
         <scene sceneID="InQ-Cc-OrR">
             <objects>
-                <viewController id="EIm-ss-8qT" customClass="SnapsViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="EIm-ss-8qT" customClass="SnapsViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Zc-bn-lrC"/>
                         <viewControllerLayoutGuide type="bottom" id="ZGL-rg-Apw"/>
@@ -78,7 +79,18 @@
                     <view key="view" contentMode="scaleToFill" id="1zI-Jl-Y17">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VNH-5k-J05">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VNH-5k-J05" firstAttribute="leading" secondItem="1zI-Jl-Y17" secondAttribute="leadingMargin" id="Bq0-kQ-mtn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VNH-5k-J05" secondAttribute="trailing" id="aJZ-Lx-CL5"/>
+                            <constraint firstItem="VNH-5k-J05" firstAttribute="top" secondItem="1Zc-bn-lrC" secondAttribute="bottom" id="jMG-gm-E7N"/>
+                            <constraint firstItem="ZGL-rg-Apw" firstAttribute="top" secondItem="VNH-5k-J05" secondAttribute="bottom" id="yYh-fg-aJ7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AqN-KT-IK7">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="aqV-Qa-vyn">
@@ -92,10 +104,22 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="VNH-5k-J05" id="btI-SG-e1b"/>
+                        <segue destination="sx9-6c-vMb" kind="show" identifier="viewSnapsSegue" id="Z9Q-uV-VHu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Mo-ma-VmM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1770.4000000000001" y="123.68815592203899"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6DQ-Q1-ekf">
+            <objects>
+                <viewController id="sx9-6c-vMb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2l5-Ak-zvB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1770" y="880"/>
         </scene>
         <!--Picture View Controller-->
         <scene sceneID="N7W-XR-Ekg">
