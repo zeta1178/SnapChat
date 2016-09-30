@@ -30,6 +30,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         imagePicker.delegate = self
         nextButton.isEnabled = false
+        descriptionTextField.isEnabled = false
         
     }
     
@@ -41,6 +42,8 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         imageView.backgroundColor = UIColor.clear
         
         nextButton.isEnabled = true
+        
+        descriptionTextField.isEnabled = true
         
         imagePicker.dismiss(animated: true, completion: nil)
         
