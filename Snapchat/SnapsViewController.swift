@@ -30,6 +30,7 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             snap.from = (snapshot.value as! NSDictionary)["from"] as! String
             snap.descrip = (snapshot.value as! NSDictionary)["description"] as! String
             snap.key = snapshot.key
+            snap.uuid = (snapshot.value as! NSDictionary)["uuid"] as! String
             
             self.snaps.append(snap)
             self.tableView.reloadData()
@@ -48,21 +49,34 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 index += 1
             }
             
+            self.tableView.reloadData()
             
         })
         
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return snaps.count
+        
+        if snaps.count == 0 {
+            return 1
+        } else {
+            return snaps.count
+        }
+        
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         
+        if snaps.count == 0 {
+            cell.textLabel?.text = "You have no snaps 😞"
+        } else {
+            
         let snap = snaps[indexPath.row]
+            
         cell.textLabel?.text = snap.from
+        }
         return cell
     }
     
